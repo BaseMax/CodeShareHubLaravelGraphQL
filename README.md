@@ -1,4 +1,4 @@
-# Code Snippet Manager
+# Code Snippet Manager GraphQL Laravel
 
 Code Snippet Manager is a tool designed to simplify the process of managing and sharing code snippets among developers. It leverages Laravel 10, PHP 8.2, and Redis for caching to provide an efficient and user-friendly platform for developers to store, retrieve, and collaborate on code snippets seamlessly.
 
