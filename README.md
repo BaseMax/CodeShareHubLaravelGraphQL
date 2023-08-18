@@ -172,6 +172,9 @@ type Query {
   getUserSnippets(userID: ID!): [Snippet]
   getTopRatedSnippets(limit: Int!): [Snippet]
   getSnippetComments(snippetID: ID!): [Comment]
+  searchSnippetsWithOptions(options: SearchOptions!): SearchResult
+  getUserByUsername(username: String!): User
+  getSnippetByTitle(title: String!): Snippet
   # Other queries
 }
 
@@ -179,50 +182,6 @@ input SnippetFilters {
   tags: [String]
   language: String
   # Other filtering fields
-}
-
-type Mutation {
-  createUser(input: CreateUserInput!): User
-  createSnippet(input: CreateSnippetInput!): Snippet
-  updateSnippet(id: ID!, input: UpdateSnippetInput!): Snippet
-  deleteSnippet(id: ID!): Boolean
-  addTagToSnippet(snippetID: ID!, tag: String!): Snippet
-  removeTagFromSnippet(snippetID: ID!, tag: String!): Snippet
-  shareSnippet(snippetID: ID!): String
-  rateSnippet(snippetID: ID!, rating: Int!): Snippet
-  createComment(snippetID: ID!, text: String!): Comment
-  deleteComment(id: ID!): Boolean
-  flagComment(commentID: ID!): Comment
-  approveSnippet(snippetID: ID!): Snippet
-  createReview(snippetID: ID!, rating: Int!, text: String!): Review
-  updateReview(reviewID: ID!, rating: Int!, text: String!): Review
-  deleteReview(id: ID!): Boolean
-  addCollaborator(snippetID: ID!, userID: ID!): Snippet
-  removeCollaborator(snippetID: ID!, userID: ID!): Snippet
-  forkSnippet(snippetID: ID!): Snippet
-  tagSuggestion(snippetID: ID!): [String]
-  # Other mutations
-}
-```
-
-AND
-
-```graphql
-type Query {
-  # ... previous queries
-
-  getUserByUsername(username: String!): User
-  getSnippetByTitle(title: String!): Snippet
-}
-
-type Mutation {
-  # ... previous mutations
-
-  deleteCollaborator(snippetID: ID!, userID: ID!): Snippet
-  createTag(tagName: String!): String
-  editUser(id: ID!, input: EditUserInput!): User
-  editComment(id: ID!, newText: String!): Comment
-  createFlaggedComment(snippetID: ID!, text: String!): Comment
 }
 
 input EditUserInput {
@@ -268,10 +227,32 @@ type SearchResult {
   totalCount: Int
 }
 
-type Query {
-  # ... previous queries
-
-  searchSnippetsWithOptions(options: SearchOptions!): SearchResult
+type Mutation {
+  createUser(input: CreateUserInput!): User
+  createSnippet(input: CreateSnippetInput!): Snippet
+  updateSnippet(id: ID!, input: UpdateSnippetInput!): Snippet
+  deleteSnippet(id: ID!): Boolean
+  addTagToSnippet(snippetID: ID!, tag: String!): Snippet
+  removeTagFromSnippet(snippetID: ID!, tag: String!): Snippet
+  shareSnippet(snippetID: ID!): String
+  rateSnippet(snippetID: ID!, rating: Int!): Snippet
+  createComment(snippetID: ID!, text: String!): Comment
+  deleteComment(id: ID!): Boolean
+  flagComment(commentID: ID!): Comment
+  approveSnippet(snippetID: ID!): Snippet
+  createReview(snippetID: ID!, rating: Int!, text: String!): Review
+  updateReview(reviewID: ID!, rating: Int!, text: String!): Review
+  deleteReview(id: ID!): Boolean
+  addCollaborator(snippetID: ID!, userID: ID!): Snippet
+  removeCollaborator(snippetID: ID!, userID: ID!): Snippet
+  forkSnippet(snippetID: ID!): Snippet
+  tagSuggestion(snippetID: ID!): [String]
+  deleteCollaborator(snippetID: ID!, userID: ID!): Snippet
+  createTag(tagName: String!): String
+  editUser(id: ID!, input: EditUserInput!): User
+  editComment(id: ID!, newText: String!): Comment
+  createFlaggedComment(snippetID: ID!, text: String!): Comment
+  # Other mutations
 }
 ```
 
