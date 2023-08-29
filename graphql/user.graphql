@@ -1,3 +1,8 @@
 extend type Query {
     getUser(id: ID! @eq): User @find
+    getUserByUsername(username: String! @eq): User @find
+}
+
+extend type Mutation {
+    createUser(username: String!, email: String!, password: String!): User @create
 }

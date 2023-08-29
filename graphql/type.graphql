@@ -50,3 +50,11 @@ type Review {
     created_at: String
     updated_at: String
 }
+
+type SnippetTag {
+    id: ID!
+    snippet: Snippet! @belongsTo
+    tag: Tag! @belongsTo
+    created_at: String
+    updated_at: String
+}

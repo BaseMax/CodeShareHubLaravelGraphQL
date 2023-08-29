@@ -1,0 +1,4 @@
+extend type Mutation {
+    updateReview(id: ID!, text: String, rating: Int): Review @update
+    deleteReview(id: ID! @eq): Review @delete
+}

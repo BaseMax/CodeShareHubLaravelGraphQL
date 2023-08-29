@@ -1,0 +1,4 @@
+extend type Mutation {
+    addTagToSnippet(snippet_id: ID!, tag_id: ID!): SnippetTag
+    removeTagFromSnippet(id: ID!): SnippetTag @delete
+}

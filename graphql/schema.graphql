@@ -1,3 +1,7 @@
 #import type.graphql
 #import user.graphql
 #import snippet.graphql
+#import snippet_tag.graphql
+#import comment.graphql
+#import review.graphql
+#import tag.graphql

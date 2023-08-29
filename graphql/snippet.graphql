@@ -1,3 +1,12 @@
 extend type Query {
-    
+    getSnippet(id: ID! @eq): Snippet @find
+    getUserSnippets(userId: ID!): [Snippet]!
+    searchSnippetsWithOptions(keyword: String!): [Snippet]!
+    getSnippetByTitle(title: String! @eq): [Snippet]! @find
+}
+
+extend type Mutation {
+    createSnippet(title: String!, description: String!, code: String!, language: String!, owner_id: ID!): Snippet! @create
+    deleteSnippet(id: ID! @eq): Snippet @delete
+    rateSnippet(snippet_id: ID!, rating: Int!, text: String!, user_id: ID!): Review @create
 }
