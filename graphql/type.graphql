@@ -1,0 +1,52 @@
+type User {
+    id: ID!
+    username: String!
+    email: String!
+    snippets: [Snippet]! @hasMany
+    created_at: String
+    updated_at: String
+    comments: [Comment]! @hasMany
+    reviews: [Review]! @hasMany
+}
+
+type Snippet {
+    id: ID!
+    title: String!
+    description: String!
+    code: String!
+    language: String!
+    tags: [Tag]! @hasMany
+    owner: User! @belongsTo
+    collaborators: [User]! @hasMany
+    reviews: [Review]! @hasMany
+    comments: [Comment]! @hasMany
+    created_at: String
+    updated_at: String
+}
+
+type Tag {
+    id: ID!
+    name: String!
+    snippets: [Snippet]! @hasMany
+    created_at: String
+    updated_at: String
+}
+
+type Comment {
+    id: ID!
+    text: String!
+    user: User! @belongsTo
+    snippet: Snippet! @belongsTo
+    created_at: String
+    updated_at: String
+}
+
+type Review {
+    id: ID!
+    rating: Int!
+    text: String!
+    user: User! @belongsTo
+    snippet: Snippet! @belongsTo
+    created_at: String
+    updated_at: String
+}

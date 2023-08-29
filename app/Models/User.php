@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -42,4 +43,19 @@ class User extends Authenticatable
     ];
 
     protected $table = "users";
+
+    public function snippets(): HasMany
+    {
+        return $this->hasMany(Snippet::class, "owner_id");
+    }
+
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class, "user_id");
+    }
+
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class, "user_id");
+    }
 }
