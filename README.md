@@ -7,7 +7,7 @@ Code Snippet Manager is a tool designed to simplify the process of managing and 
 - **GraphQL API:** The core of this tool is built around a GraphQL API, allowing developers to interact with the system using a flexible and powerful query language.
 - **Snippet Management:** Easily create, update, delete, and retrieve code snippets. Each snippet is associated with metadata such as title, description, tags, and language for efficient organization.
 - **Search and Filtering:** Quickly find the snippets you need using search queries and filtering options based on tags, language, and more.
-- **User Authentication: Secure user authentication and authorization are integrated, ensuring that only authorized users can access and modify their own snippets.
+- **User Authentication:** Secure user authentication and authorization are integrated, ensuring that only authorized users can access and modify their own snippets.
 - **Sharing and Collaboration:** Share snippets with other developers by generating unique links, allowing for easy collaboration and discussion.
 - **Caching with Redis:** Utilize Redis for caching to optimize the performance of the application, ensuring fast response times even during peak usage.
 
